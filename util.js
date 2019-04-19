@@ -43,11 +43,17 @@ Util.getActiveWindow = function () {
   return window
 }
 
+// Also known as Workspace
 Util.getDesktopSize = function () {
-  const desktop = {}
-  desktop.width = parseInt(Util.run("wmctrl -d | awk '{print $9}' | cut -dx -f1"))
-  desktop.height = parseInt(Util.run("wmctrl -d | awk '{print $9}' | cut -dx -f2"))
-  return desktop
+  const info = Util.run("wmctrl -d")
+  const sizeString = info.match(/\*.*(\s\d+x\d+\s)/)
+  let size
+  if (sizeString && sizeString[1]) size = sizeString[1].split('x')
+
+  return {
+    width: parseInt(size[0]),
+    height: parseInt(size[1]),
+  }
 }
 
 Util.getScreenSize = function () {
