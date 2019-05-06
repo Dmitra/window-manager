@@ -1,0 +1,22 @@
+{
+  "name": "@intelliart/window-manager",
+  "version": "0.0.1",
+  "description": "Linux window manager",
+  "keywords": [
+    "keyboard shortcuts"
+  ],
+  "homepage": "https://github.com/Dmitra/window-manager#readme",
+  "license": "GPL-3.0+",
+  "author": {
+    "name": "Adrian Dmitra",
+    "email": "adrian@dmitra.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dmitra/window-manager"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "minimist": "^1.2.0"
+  }
+}
