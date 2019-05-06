@@ -1,5 +1,6 @@
 const exec = require('child_process').execSync
 
+const _ = require('lodash')
 const Util = {}
 Util.run = function (cmd) {
   return exec(cmd).toString().replace('\n', '')
@@ -34,13 +35,44 @@ Util.step = function (value, direction, scale) {
   }
 }
 
+Util.getActiveWindowId = function () {
+  return Util.run('xdotool getactivewindow')
+}
+
 Util.getActiveWindow = function () {
   const window = {}
   // window.name = Util.run("wmctrl -l | awk '/Chromium/ {print $1}'")
-  window.id = Util.run('xdotool getactivewindow')
+  window.id = Util.getActiveWindowId()
   window.width = parseInt(Util.run(`xwininfo -id ${window.id} | grep \"Width\" | awk '{print $2}'`))
   window.height = parseInt(Util.run(`xwininfo -id ${window.id} | grep \"Height\" | awk '{print $2}'`))
   return window
+}
+
+Util.getWindows = function () {
+  const summary = Util.run('wmctrl -lxpG')
+  return _(summary.split('0x'))
+    .map(attributesLine => {
+      if (_.isEmpty(attributesLine)) return
+      attributesLine = '0x' + attributesLine 
+      attributesLine.replace('\n', '')
+      const list = attributesLine.split(/\s+/)
+      const className = list[7].includes('.') ? list[7].split('.')[0] : list[7]
+      const appName = list[7].includes('.') ? list[7].split('.')[1] : list[7]
+      return {
+        id: parseInt(list[0]),
+        id_hex: list[0],
+        desktop: list[1],
+        pid: list[2],
+        x: list[3],
+        y: list[4],
+        width: list[5],
+        height: list[6],
+        class: list[7],
+        className,
+        appName,
+        name: list.splice(8).join(' '),
+      }
+    }).compact().value()
 }
 
 // Also known as Workspace

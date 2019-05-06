@@ -1,0 +1,17 @@
+{
+  "trello": {
+    "className": "crx_lmbdkjkmhohdjhnfnamelcnpjijkekoa",
+    "launcher": "trello=/opt/brave.com/brave/brave-browser --disable-gpu --disable-software-rasterizer --app-id=lmbdkjkmhohdjhnfnamelcnpjijkekoa"
+  },
+  "notion": {
+    "className": "crx_gdbcacfblgceiodolakcijmbnpmagjej",
+    "launcher": "trello=/opt/brave.com/brave/brave-browser --disable-gpu --disable-software-rasterizer --app-id=nmbdkjkmhohdjhnfnamelcnpjijkekoa"
+  },
+  "tabs-outliner": {
+    "className": "crx_eggkanocgddhmamlbiijnphhppkpkmkl"
+  },
+  "terminology": {
+    "className": "main",
+    "launcher": "tdrop -a terminology"
+  }
+}
