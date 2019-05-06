@@ -5,7 +5,7 @@ const snapper = require('./snapCurrentWindow')
 module.exports = function (direction) {
   const window = Util.getActiveWindow()
   const desktop = Util.getDesktopSize()
-  const screenWidths = [360, 480, 640, 768, 1024, 1280, 1600, 1920, 2500, 2560, 3440]
+  const screenWidths = [360, 480, 640, 768, 960, 1152, 1280, 1560, 1920, 2500, 2560, 3440]
 
   const widths = Util.limitScale(screenWidths, desktop.width)
 
