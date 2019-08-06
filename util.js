@@ -49,11 +49,10 @@ Util.getActiveWindow = function () {
 }
 
 Util.getWindows = function () {
-  const summary = Util.run('wmctrl -lxpG')
-  return _(summary.split('0x'))
+  const summary = exec('wmctrl -lxpG').toString()
+  return _(summary.split('\n'))
     .map(attributesLine => {
       if (_.isEmpty(attributesLine)) return
-      attributesLine = '0x' + attributesLine 
       attributesLine.replace('\n', '')
       const list = attributesLine.split(/\s+/)
       const className = list[7].includes('.') ? list[7].split('.')[0] : list[7]
