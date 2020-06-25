@@ -10,7 +10,7 @@ Note: nodejs should be at least v14
 
 ### Suggested keyboard layout
 
-[![](https://raw.githubusercontent.com/window-manager/master/keyboard-layout.png)](http://daviste.com/demo/keyboard-layout/?physical=lenovo+y70-70&visual=lenovo+y70-70+workman&functional=dmitra%2Fubuntu&context=undefined&keys=Meta+Left)
+[![](https://raw.githubusercontent.com/Dmitra/window-manager/master/keyboard-layout.png)](http://daviste.com/demo/keyboard-layout/?physical=lenovo+y70-70&visual=lenovo+y70-70+workman&functional=dmitra%2Fubuntu&context=undefined&keys=Meta+Left)
 
 In this keyboard layout windows are manipulated by 6 keys plus two modifiers.  
 One is "Super / Win" key to activate the "windows manipulation" layer
