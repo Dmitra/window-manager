@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-var snapper = require('../snapCurrentWindow')
+import snapper from '../snapCurrentWindow.js'
 snapper('Left')

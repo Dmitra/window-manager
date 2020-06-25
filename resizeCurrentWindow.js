@@ -1,13 +1,12 @@
-#!/usr/bin/env node
-const Util = require('./util')
-const snapper = require('./snapCurrentWindow')
+import Util from './util.js'
+import snapper from './snapCurrentWindow.js'
+import { SCREEN_WIDTHS } from './constants.js'
 
-module.exports = function (direction) {
+export default function (direction) {
   const window = Util.getActiveWindow()
   const desktop = Util.getDesktopSize()
-  const screenWidths = [360, 480, 640, 768, 960, 1152, 1280, 1560, 1920, 2500, 2560, 3440]
 
-  const widths = Util.limitScale(screenWidths, desktop.width)
+  const widths = Util.limitScale(SCREEN_WIDTHS, desktop.width)
 
   // var snapToRight = desktop.width === window.width + window.x
   const wininfo = Util.run(`xwininfo -id ${window.id} | grep "Corners" | awk '{print $3}'`)

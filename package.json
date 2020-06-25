@@ -1,10 +1,11 @@
 {
   "name": "@intelliart/window-manager",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Linux window manager",
   "keywords": [
     "keyboard shortcuts"
   ],
+  "type": "module",
   "homepage": "https://github.com/Dmitra/window-manager#readme",
   "license": "GPL-3.0+",
   "author": {

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const _ = require('lodash')
-const Util = require('../util')
-const knownApps = require('../known-apps')
+import _ from 'lodash'
+import Util from '../util.js'
+import knownApps from '../known-apps.js'
 
 const appName = process.argv[2]
 let className = appName

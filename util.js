@@ -1,6 +1,6 @@
-const exec = require('child_process').execSync
+import _ from 'lodash'
+import { execSync as exec } from 'child_process'
 
-const _ = require('lodash')
 const Util = {}
 Util.run = function (cmd) {
   return exec(cmd).toString().replace('\n', '')
@@ -13,6 +13,7 @@ Util.limitScale = function (scale, max) {
       return scale.slice(0, i + 1)
     }
   }
+  return scale
 }
 /**
  * change value by predefined steps in scale
@@ -45,6 +46,8 @@ Util.getActiveWindow = function () {
   window.id = Util.getActiveWindowId()
   window.width = parseInt(Util.run(`xwininfo -id ${window.id} | grep \"Width\" | awk '{print $2}'`))
   window.height = parseInt(Util.run(`xwininfo -id ${window.id} | grep \"Height\" | awk '{print $2}'`))
+  window.x = parseInt(Util.run(`xwininfo -id ${window.id} | grep \"Absolute upper-left X\" | awk '{print $4}'`))
+  window.y = parseInt(Util.run(`xwininfo -id ${window.id} | grep \"Absolute upper-left Y\" | awk '{print $4}'`))
   return window
 }
 
@@ -62,10 +65,10 @@ Util.getWindows = function () {
         id_hex: list[0],
         desktop: list[1],
         pid: list[2],
-        x: list[3],
-        y: list[4],
-        width: list[5],
-        height: list[6],
+        x: parseInt(list[3]),
+        y: parseInt(list[4]),
+        width: parseInt(list[5]),
+        height: parseInt(list[6]),
         class: list[7],
         className,
         appName,
@@ -94,4 +97,4 @@ Util.getScreenSize = function () {
   return screen
 }
 
-module.exports = Util
+export default Util

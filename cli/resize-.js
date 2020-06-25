@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-var resizer = require('../resizeCurrentWindow')
+import resizer from '../resizeCurrentWindow.js'
 resizer('DESC')
